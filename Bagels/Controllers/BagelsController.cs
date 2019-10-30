@@ -19,9 +19,19 @@ namespace Bagels.Controllers
 
         //GET api/bagels
         [HttpGet]
-        public ActionResult<IEnumerable<Bagel>> Get()
+        public ActionResult<IEnumerable<Bagel>> Get(string flavor, string suggestedToppings)
         {
-            return _db.Bagels.ToList();
+            var query = _db.Bagels.AsQueryable();
+
+            if (flavor != null)
+            {
+                query = query.Where(b => b.Flavor.ToLower().Contains(flavor.ToLower()));
+            }
+            if (suggestedToppings != null)
+            {
+                query = query.Where(b=> b.SuggestedToppings.ToLower().Contains(suggestedToppings.ToLower()));
+            }
+            return query.ToList();
         }
 
         //GET api/bagels/{id}
