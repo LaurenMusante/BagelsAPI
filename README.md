@@ -2,7 +2,7 @@
 
 #### _An API of Bagels October 29, 2019_
 
-#### By _**Lauren Musante, Lauren Musante**_
+#### By _**Lauren Musante, Jacqueline Remmel**_
 
 ## Description
 
